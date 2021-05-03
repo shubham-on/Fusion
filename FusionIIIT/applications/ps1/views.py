@@ -788,7 +788,8 @@ def stock_update(request):
 # def stock_view(request):
 #     sto=StockEntry.objects.all()
 #     return render(request,'ps1/stock_view.html',{'StockEntry':sto})
-# @login_required(login_url = "/accounts/login")
+
+@login_required(login_url = "/accounts/login")
 def stock_view(request):
     
     sto=StockEntry.objects.all()
