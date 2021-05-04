@@ -116,7 +116,7 @@ def ps1(request):
                 expected_delivery=request.POST.get('expected_delivery')
                 sources_of_supply=request.POST.get('sources_of_supply')
                 head_approval=False
-                director_approval=True
+                director_approval=False
                 financial_approval=False
                 # purchased =request.POST.get('purchased')
 
