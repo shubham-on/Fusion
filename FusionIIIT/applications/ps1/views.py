@@ -116,9 +116,9 @@ def ps1(request):
                 expected_delivery=request.POST.get('expected_delivery')
                 sources_of_supply=request.POST.get('sources_of_supply')
                 head_approval=False
-                director_approval=False
+                director_approval=True
                 financial_approval=False
-                purchased =request.POST.get('purchased')
+                # purchased =request.POST.get('purchased')
 
                 file = File.objects.create(
                     uploader=uploader,
@@ -820,11 +820,10 @@ def entry(request):
 
     if request.method=='POST':
         id=request.POST.get('id')
-        return render(request,'ps1/StockEntry.html',{'id':id})
-        
-        
-
-    
+        temp=File.objects.get(id=id)
+        temp1=IndentFile.objects.get(file_info=temp)
+        return render(request,'ps1/StockEntry.html',{'id':id , 'indent':temp1})
+          
     ent=IndentFile.objects.all()
     return render(request,'ps1/entry.html',{'ent':ent})
     
