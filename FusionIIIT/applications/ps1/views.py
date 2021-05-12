@@ -576,17 +576,19 @@ def forwardindent(request, id):
                 if val=="accept":
                     if any(d in designs for d in ("HOD (ME)", "HOD (ECE)", "CSE HOD", "HOD (Design)", "HOD (NS)")):
                         indent.head_approval=True
-                    elif "director" in designs:
-                        indent.director_approval=True
+                    elif "director" in designs :
                         indent.financial_approval=True
-                
+                        indent.director_approval=True
+                    elif "asst. registrar fa" in designs :    
+                        indent.financial_approval=True
+                   
                 else:
                     if any(d in designs for d in ("HOD (ME)", "HOD (ECE)", "CSE HOD", "HOD (Design)", "HOD (NS)")):
-                        indent.head_approval=True
+                        indent.head_approval=False
                     elif "director" in designs:
-                        indent.director_approval=True
-                        indent.financial_approval=True
-                    
+                        indent.director_approval=False
+                    elif "asst. registrar fa" in designs:      
+                        indent.financial_approval=False
 
                 indent.save()
 
